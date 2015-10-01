@@ -30,6 +30,10 @@ function Game() {
         return this.canvas.height;
     }
 
+    this.getWidthContainer = function() {
+        return this.canvas.width;
+    }
+
     this.init = function() {
         this.listElements = [];
         this.createElement();
@@ -126,7 +130,8 @@ function Game() {
     }
 
     this.over = function() {
-    	this.pause=true();
+    	this.pause=true;
+        alert("Game Over");
     }
 
 

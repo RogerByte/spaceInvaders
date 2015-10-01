@@ -2,7 +2,7 @@ function Spaceship() {
     this.game;
 
     this._construct = function(game, pointInitX, pointInitY) {
-        this._constructElement(pointInitX, pointInitY, 80, 40, "#00FF00");
+        this._constructElement(pointInitX, pointInitY, 50, 30, "#00FF00");
         this.game = game;
     }
 
@@ -11,7 +11,7 @@ function Spaceship() {
             return;
         }
 
-        if (this.velocityX > 0 && this.x > game.getHeightContainer() - (this.height + 15)) {
+        if (this.velocityX > 0 && this.x > game.getWidthContainer() - (this.width + 10)) {
         	return;
         }
 
