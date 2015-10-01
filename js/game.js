@@ -2,7 +2,7 @@ function Game() {
     this.canvas;
     this.context;
 
-    this.constructor = function(element) {
+    this._construct = function(element) {
         /*
          * Se asigna el elemento canvas del dom a variable para asignar
          * atributos principales del área de juego

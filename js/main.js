@@ -4,7 +4,7 @@
 
     function init() {
         game = new Game();
-        game.constructor("mainContainer");
+        game._construct("mainContainer");
     }
     init;
     window.onload = init;
