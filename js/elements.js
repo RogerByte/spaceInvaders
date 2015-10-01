@@ -31,9 +31,9 @@ function Element() {
         context.fillRect(this.x, this.y, this.width, this.height)
     }
 
-    this.moveElement = function(time) {
-        this.x += (time * this.velocityX) / 1000;
-        this.y += (time * this.velocityY) / 1000;
+    this.moveElement = function(distance) {
+        this.x += (distance * this.velocityX) / 1000;
+        this.y += (distance * this.velocityY) / 1000;
     }
 
     this.setVelocityX = function(velocityX) {
