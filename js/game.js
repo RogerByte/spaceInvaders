@@ -5,7 +5,7 @@ function Game() {
     this.isRunning = false;
     this.lapseTime;
     this.pause = false;
-    this.velocityDesp = 300;
+    this.velocityDesp = 100;
 
     this._construct = function(element) {
         /*
@@ -34,7 +34,7 @@ function Game() {
 
     this.createElement = function() {
         this.spaceship = new Spaceship();
-        this.spaceship._construct(this, 460, 600);
+        this.spaceship._construct(this, 300, 600);
         this.listElements.push(this.spaceship);
     }
 

@@ -7,11 +7,11 @@ function Spaceship() {
     }
 
     this.move = function(lapseTime) {
-        if (this.velocityX < 0 && this.x < 10) {
+        if (this.velocityX < 0 && this.x < 20) {
             return;
         }
 
-        if (this.velocityX > 0 && this.x > (game.getHeightContainer() - (this.height + 20))) {
+        if (this.velocityX > 0 && this.x > game.getHeightContainer() - (this.height + 15)) {
         	return;
         }
 
