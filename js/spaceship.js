@@ -2,7 +2,7 @@ function Spaceship() {
     this.game;
 
     this._construct = function(game, pointInitX, pointInitY) {
-        this._constructElement(pointInitX, pointInitY, 80, 40, "white");
+        this._constructElement(pointInitX, pointInitY, 80, 40, "#00FF00");
         this.game = game;
     }
 
