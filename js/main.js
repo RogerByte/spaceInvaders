@@ -7,4 +7,12 @@ function init() {
     timer = setInterval("game.loopInit();", 25);
 }
 
+document.onkeyup = function(e) {
+	game.onkeyup(e);
+}
+
+document.onkeydown = function(e) {
+	game.onkeydown(e);
+}
+
 window.onload = init;
