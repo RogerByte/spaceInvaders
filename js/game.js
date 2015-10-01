@@ -131,7 +131,6 @@ function Game() {
 
     this.over = function() {
     	this.pause=true;
-        alert("Game Over");
     }
 
 
