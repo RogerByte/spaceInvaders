@@ -61,7 +61,6 @@ function Game() {
             // Mover elementos
             if (!this.pause) {
                 for (var i = 0; i < elements; i++) {
-                	//debugger
                     this.listElements[i].move(distance);
                 }
             }
@@ -69,10 +68,10 @@ function Game() {
             for (var i = 0; i < elements; i++) {
                 this.listElements[i].draw(this.context);
             }
+
             if(this.direction){
             	var n=this.listElements.length;
             	for(var i=0; i < n; i++){
-            		debugger
             		this.listElements[i].behaviorOfMovement();
             	}
             	this.direction=false;

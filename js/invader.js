@@ -12,7 +12,7 @@ function Invader(){
         if (this.velocityX < 0 && this.x < 10) {
             this.game.changeDirection()
         }
-        if (this.velocityX > 0 && this.x > 750) {
+        if (this.velocityX > 0 && this.x > game.getHeightContainer()) {
             this.game.changeDirection();
         }
         this.moveElement(distance);

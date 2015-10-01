@@ -17,6 +17,10 @@ function Spaceship() {
 
         this.moveElement(lapseTime)
     }
+
+    this.behaviorOfMovement = function(){
+
+    }
 }
 
 Spaceship.prototype = new Element();
