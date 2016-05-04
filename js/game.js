@@ -90,15 +90,6 @@ function Game() {
             	this.spaceship.setVelocityX(this.velocityDesp);
             }
         } else{
-            console.log('sdasdasd')
-
-        }
-    }
-
-    this.loopInit = function() {
-        if (this.isRunning) {
-            this.loop();
-        } else {
             this.lapseTime = new Date().getTime();
             this.isRunning = true;
         }

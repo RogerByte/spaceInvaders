@@ -10,7 +10,7 @@ function init() {
         if(game.pause){
             game.setMessage()
         }else{
-            game.loopInit();
+            game.loop();
             console.log('is running')
         }
 
