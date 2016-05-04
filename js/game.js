@@ -9,7 +9,6 @@ function Game() {
     this.counterInvader;
     this.direction = false;
 
-
     this._construct = function(element) {
         /*
          * Se asigna el elemento canvas del dom a variable para asignar
@@ -37,6 +36,7 @@ function Game() {
     this.init = function() {
         this.listElements = [];
         this.createElement();
+        this.pause = false;
     }
 
     this.createElement = function() {
@@ -62,12 +62,14 @@ function Game() {
             this.lapseTime = new Date().getTime();
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             var elements = this.listElements.length;
+
             // Mover elementos
             if (!this.pause) {
                 for (var i = 0; i < elements; i++) {
                     this.listElements[i].move(distance);
                 }
             }
+
             // Dibujar elementos
             for (var i = 0; i < elements; i++) {
                 this.listElements[i].draw(this.context);
@@ -87,7 +89,8 @@ function Game() {
             } else if(!this.leftDown && this.rightDown){
             	this.spaceship.setVelocityX(this.velocityDesp);
             }
-
+        } else{
+            console.log('sdasdasd')
 
         }
     }
@@ -103,25 +106,41 @@ function Game() {
 
     this.onkeydown = function(e) {
         e.preventDefault();
+        var key = e.keyCode;
 
-        if (this.pause && e.keyCode == 13) {
+        if(DEBUGGER){
+            console.info(e.code + ' : ' + e.keyCode)
+        }
+
+        if (this.pause && key == 13) {
             this.init();
+            this.pause = false;
             return;
         }
 
-        if (e.keyCode == 37) {
+        if (key == 37) {
             this.leftDown = true;
-        } else if (e.keyCode == 39) {
+        } else if (key == 39) {
             this.rightDown = true;
         }
     }
 
     this.onkeyup = function(e) {
         e.preventDefault();
-        if (e.keyCode == 37) {
+        var key = e.keyCode;
+
+        if(DEBUGGER){
+            console.info(e.code + ' : ' + e.keyCode)
+        }
+
+        if (key == 37) {
             this.leftDown = false;
         } else if (e.keyCode == 39) {
             this.rightDown = false;
+        }
+
+        if (key == 80) {
+            game.applyPause();
         }
     }
 
@@ -133,5 +152,23 @@ function Game() {
     	this.pause=true;
     }
 
+    this.applyPause = function(){
+        if(this.pause){
+            this.pause=false;
+        }else{
+            this.isRunning = false;
+            this.pause=true;
+        }
+    }
+
+    this.setMessage= function(text){
+        var text = text || "PAUSE"
+        this.context.font = "30px Arial";
+        this.context.fillStyle  = "red";
+        this.context.textAlign="center";
+        this.context.fillText(text,330,350);
+    }
+
 
 }
+

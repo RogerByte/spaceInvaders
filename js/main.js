@@ -1,10 +1,20 @@
 var game;
-var timer;
+var DEBUGGER = false
 
 function init() {
     game = new Game();
     game._construct("mainContainer");
-    timer = setInterval("game.loopInit();", 25);
+
+
+    setInterval(function() {
+        if(game.pause){
+            game.setMessage()
+        }else{
+            game.loopInit();
+            console.log('is running')
+        }
+
+    }, 150);
 }
 
 document.onkeyup = function(e) {
