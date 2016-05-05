@@ -5,8 +5,8 @@
 function Element() {
     this.x;
     this.y;
-    this.setVelocityX = 0;
-    this.setVelocityY = 0;
+    this.velocityX = 0;
+    this.velocityY = 0;
 
     this._constructElement = function(positionX, positionY, width, height, color) {
         this.x = positionX;

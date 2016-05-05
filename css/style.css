@@ -19,23 +19,6 @@ body{
   font-family:  monospace;
 }
 
-.controls{
-  margin: 1em auto;
-  border: 1px solid black;
-  width: 20em;
-  padding: 1em;
-  color: white;
-}
-
-.controls .option{
-  list-style: none;
-}
-
-.controls .title{
-  margin: 0 auto;
-  text-align: center;
-}
-
 .content{
   text-align: center;
 }
