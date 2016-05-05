@@ -24,17 +24,17 @@ function Game() {
         this.canvas.style.backgroundColor = "black";
         this.context = this.canvas.getContext('2d');
 
-        this.panelMessage=document.createElement("div");
-        this.panelMessage.style.display="none";
-        this.panelMessage.style.position="absolute";
-        this.panelMessage.style.top=this.canvas.offsetTop;
-        this.panelMessage.style.left=this.canvas.offsetLeft;
-        this.panelMessage.style.width=this.canvas.width;
-        this.panelMessage.style.height=this.canvas.height;
-        this.panelMessage.style.paddingTop="250px";
-        this.panelMessage.style.textAlign="center";
-        this.panelMessage.style.color="yellow";
-        this.panelMessage.style.fontSize="x-large";
+        this.panelMessage = document.createElement("div");
+        this.panelMessage.style.display = "none";
+        this.panelMessage.style.position = "absolute";
+        this.panelMessage.style.top = this.canvas.offsetTop;
+        this.panelMessage.style.left = this.canvas.offsetLeft;
+        this.panelMessage.style.width = this.canvas.width;
+        this.panelMessage.style.height = this.canvas.height;
+        this.panelMessage.style.paddingTop = "250px";
+        this.panelMessage.style.textAlign = "center";
+        this.panelMessage.style.color = "yellow";
+        this.panelMessage.style.fontSize = "x-large";
         document.body.appendChild(this.panelMessage);
 
         this.createElement();
@@ -196,7 +196,7 @@ function Game() {
             this.leftDown = false;
         } else if (e.keyCode == 39) {
             this.rightDown = false;
-        }else if (key == 32) {
+        } else if (key == 32) {
             this.spacePush = false;
         }
 
@@ -272,12 +272,12 @@ function Game() {
                 }
             }
         }
-        console.log('Element destroyed!')
+        console.warn('Element destroyed!')
     }
 
     this.shooting = function() {
-        if(DEBUGGER){
-            console.log('Disparando')
+        if (DEBUGGER) {
+            console.info('shooting')
         }
 
         if (this.loadPushButton) {
