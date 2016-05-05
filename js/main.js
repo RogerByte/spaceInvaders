@@ -8,7 +8,7 @@ function init() {
 
     setInterval(function() {
         if (game.pause) {
-            //game.setMessage()
+            game.setMessage()
         } else {
             game.loop();
         }
