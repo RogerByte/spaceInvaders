@@ -154,7 +154,7 @@ function Game() {
 
     this.setMessage= function(text){
         var text = text || "PAUSE"
-        this.context.font = "30px Arial";
+        this.context.font = "3em monospace";
         this.context.fillStyle  = "red";
         this.context.textAlign="center";
         this.context.fillText(text,330,350);
