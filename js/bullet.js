@@ -12,7 +12,7 @@ function Bullet(){
     this.move = function(distance) {
         this.moveElement(distance);
         if (this.y < -100) {
-            this.game.delete(this);
+            this.game.deleteElement(this);
         }
     }
 
