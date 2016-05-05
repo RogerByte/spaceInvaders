@@ -1,11 +1,19 @@
 function Game() {
+    this.panelMessage;
     this.canvas;
     this.context;
     this.listElements = [];
+    this.listElementsDeleted = [];
     this.isRunning = false;
     this.lapseTime;
     this.pause = false;
     this.velocityDesp = 200;
+    this.lastShoot = 0;
+    this.shootInterval = 500;
+    this.loadPushButton = false;
+    this.spacePush = false;
+    this.arrowLeftPush = false;
+    this.arrowRightPush=false;
     this.counterInvader;
     this.direction = false;
 
@@ -32,6 +40,19 @@ function Game() {
         this.listElements = [];
         this.createElement();
         this.pause = false;
+    }
+
+    this.initializeGame = function(){
+        this.listElements=[];
+        this.listElementsDeleted=[];
+        this.createElement();
+
+        this.spacePush = false;
+        this.arrowLeftPush = false;
+        this.arrowRightPush=false;
+
+        this.lapseTime=new Date().getTime();
+        this.loadPushButton=false;
     }
 
     this.createElement = function() {
@@ -176,6 +197,13 @@ function Game() {
 
     }
 
+    this.deleteElement = function(){
+        console.log('delete Element')
+    }
+
+    this.notificateDestroy=function(){
+        console.log('Element destroyed!')
+    }
 
 }
 
