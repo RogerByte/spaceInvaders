@@ -14,7 +14,7 @@ function init() {
             console.log('is running')
         }
 
-    }, 150);
+    }, 20);
 }
 
 document.onkeyup = function(e) {
