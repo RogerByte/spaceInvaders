@@ -10,16 +10,11 @@ function Game() {
     this.direction = false;
 
     this._construct = function(element) {
-        /*
-         * Se asigna el elemento canvas del dom a variable para asignar
-         * atributos principales del área de juego
-         */
         this.canvas = document.getElementById(element);
         this.canvas.width = 700;
         this.canvas.height = 650;
         this.canvas.style.backgroundColor = "black";
 
-        // Se asigna el contexto gráfico en el cual se dibujara el juego
         this.context = this.canvas.getContext('2d');
 
         this.createElement();
@@ -63,14 +58,10 @@ function Game() {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             var elements = this.listElements.length;
 
-            // Mover elementos
-            if (!this.pause) {
-                for (var i = 0; i < elements; i++) {
-                    this.listElements[i].move(distance);
-                }
+            for (var i = 0; i < elements; i++) {
+                this.listElements[i].move(distance);
             }
 
-            // Dibujar elementos
             for (var i = 0; i < elements; i++) {
                 this.listElements[i].draw(this.context);
             }
@@ -153,11 +144,36 @@ function Game() {
     }
 
     this.setMessage= function(text){
-        var text = text || "PAUSE"
-        this.context.font = "3em monospace";
+        var text = text || "PAUSE";
+        this.context.font = "30px monospace";
         this.context.fillStyle  = "red";
         this.context.textAlign="center";
-        this.context.fillText(text,330,350);
+        this.context.fillText(text,330,30);
+
+        this.getHelp();
+    }
+
+
+    this.getHelp = function(){
+        var self = this.context;
+
+        self.fillStyle  = "black";
+        self.fillRect(90,50,500,200);
+
+        self.fillStyle  = "white";
+        self.strokeStyle = 'blue'
+        self.strokeRect(90,50,500,200);
+
+        self.font = "30px monospace";
+        self.fillText("Controls", 330,85);
+
+        self.font = "20px monospace";
+        self.fillText("Arrow Left : Move to Left", 325,120);
+        self.fillText("Arrow Right : Move to Right", 325,140);
+        self.fillText("P : Pause", 335,160);
+
+        self.fillText("Have Fun! :)", 330,200);
+
     }
 
 
