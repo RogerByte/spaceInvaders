@@ -7,8 +7,9 @@ function Element() {
     this.y;
     this.velocityX = 0;
     this.velocityY = 0;
+    this.typeElement;
 
-    this._constructElement = function(positionX, positionY, width, height, color) {
+    this._constructElement = function(positionX, positionY, width, height, color, typeElement) {
         this.x = positionX;
         this.y = positionY;
         this.width = width;
@@ -16,6 +17,7 @@ function Element() {
         this.color = color;
         this.velocityX = 0;
         this.velocityY = 0;
+        this.typeElement = typeElement;
     }
 
     this.getPositionX = function() {
@@ -50,5 +52,31 @@ function Element() {
 
     this.getVelocityY = function() {
     	return this.velocityY;
+    }
+
+    this.getTypeElement = function(){
+        return this.typeElement;
+    }
+
+
+    this.collision = function(otherElement) {
+
+        if (this.x + this.width < otherElement.x) {
+            return false;
+        }
+
+        if (this.y + this.height < otherElement.y) {
+            return false;
+        }
+
+        if (this.x > otherElement.x + otherElement.width) {
+            return false;
+        }
+
+        if (this.y > otherElement.y + otherElement.height) {
+            return false;
+        }
+
+        return true;
     }
 }
