@@ -1,12 +1,12 @@
-function Invader(){
-	this.velocityOfMovement = 50;
-	this.game;
+function Invader() {
+    this.velocityOfMovement = 50;
+    this.game;
 
-	this._construct = function(game, pointInitX, pointInitY) {
-		this._constructElement(pointInitX, pointInitY, 40, 25, "#00FF00",'Invader');
-		this.game = game;
-		this.velocityX =-this.velocityOfMovement;
-	}
+    this._construct = function(game, pointInitX, pointInitY) {
+        this._constructElement(pointInitX, pointInitY, 40, 25, "#00FF00", 'Invader');
+        this.game = game;
+        this.velocityX = -this.velocityOfMovement;
+    }
 
     this.move = function(distance) {
         if (this.velocityX < 0 && this.x < 10) {
@@ -18,16 +18,16 @@ function Invader(){
         this.moveElement(distance);
     }
 
-    this.behaviorOfMovement = function(){
-    	this.velocityX =- this.velocityX;
-    	this.y += 10;
+    this.behaviorOfMovement = function() {
+        this.velocityX = -this.velocityX;
+        this.y += 10;
 
-    	if(this.y>570){
-    		this.game.over();
-    	}
+        if (this.y > 570) {
+            this.game.over();
+        }
     }
 
-    this.collisionWith = function(){
+    this.collisionWith = function() {
 
     }
 

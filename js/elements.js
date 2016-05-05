@@ -1,7 +1,3 @@
-/*
- * Element para crear cada elemento en el juego y tambien se encarga de
- * controlar movimientos de los elementos del juego
- */
 function Element() {
     this.x;
     this.y;
@@ -47,17 +43,16 @@ function Element() {
     }
 
     this.getVelocityX = function() {
-    	return this.velocityX;
+        return this.velocityX;
     }
 
     this.getVelocityY = function() {
-    	return this.velocityY;
+        return this.velocityY;
     }
 
-    this.getTypeElement = function(){
+    this.getTypeElement = function() {
         return this.typeElement;
     }
-
 
     this.collision = function(otherElement) {
 

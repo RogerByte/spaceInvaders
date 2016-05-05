@@ -1,10 +1,10 @@
-function Bullet(){
+function Bullet() {
     this.velocityOfMovement = -300;
     this.game;
     this.used = false;
 
     this._construct = function(game, pointInitX, pointInitY) {
-        this._constructElement(pointInitX, pointInitY, 2, 5, "yellow",'Bullet');
+        this._constructElement(pointInitX, pointInitY, 2, 8, "#ffffff", 'Bullet');
         this.game = game;
         this.velocityY = this.velocityOfMovement;
     }
@@ -16,8 +16,7 @@ function Bullet(){
         }
     }
 
-    this.behaviorOfMovement = function(){
-    }
+    this.behaviorOfMovement = function() {}
 
     this.collisionWith = function(otherElement) {
         if (this.used) {

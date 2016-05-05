@@ -2,7 +2,7 @@ function Spaceship() {
     this.game;
 
     this._construct = function(game, pointInitX, pointInitY) {
-        this._constructElement(pointInitX, pointInitY, 50, 30, "#00FF00",'Spaceship');
+        this._constructElement(pointInitX, pointInitY, 50, 30, "#00FF00", 'Spaceship');
         this.game = game;
     }
 
@@ -12,17 +12,16 @@ function Spaceship() {
         }
 
         if (this.velocityX > 0 && this.x > game.getWidthContainer() - (this.width + 10)) {
-        	return;
+            return;
         }
 
         this.moveElement(lapseTime)
     }
 
-    this.behaviorOfMovement = function(){
-    }
+    this.behaviorOfMovement = function() {}
 
-    this.collisionWith = function(otherElement){
-        if (otherElement instanceof Invader){
+    this.collisionWith = function(otherElement) {
+        if (otherElement instanceof Invader) {
             this.game.over();
         }
     }

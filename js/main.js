@@ -1,5 +1,5 @@
 var game;
-var DEBUGGER = false
+var DEBUGGER = true;
 
 function init() {
     game = new Game();
@@ -7,22 +7,21 @@ function init() {
 
 
     setInterval(function() {
-        if(game.pause){
+        if (game.pause) {
             //game.setMessage()
-        }else{
+        } else {
             game.loop();
-            console.log('is running')
         }
 
     }, 20);
 }
 
 document.onkeyup = function(e) {
-	game.onkeyup(e);
+    game.onkeyup(e);
 }
 
 document.onkeydown = function(e) {
-	game.onkeydown(e);
+    game.onkeydown(e);
 }
 
 window.onload = init;
