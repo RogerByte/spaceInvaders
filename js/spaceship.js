@@ -2,7 +2,7 @@ function Spaceship() {
     this.game;
 
     this._construct = function(game, pointInitX, pointInitY) {
-        this._constructElement(pointInitX, pointInitY, 50, 30, "#00FF00");
+        this._constructElement(pointInitX, pointInitY, 50, 30, "#00FF00",'Spaceship');
         this.game = game;
     }
 
@@ -19,7 +19,12 @@ function Spaceship() {
     }
 
     this.behaviorOfMovement = function(){
+    }
 
+    this.collisionWith = function(otherElement){
+        if (otherElement instanceof Invader){
+            this.game.over();
+        }
     }
 }
 
