@@ -11,19 +11,8 @@ function Bullet(){
 
     this.move = function(distance) {
         this.moveElement(distance);
-        if (this.y<-100){
+        if (this.y < -100) {
             this.game.delete(this);
-        }
-
-
-
-
-
-        if (this.velocityX < 0 && this.x < 10) {
-            this.game.changeDirection()
-        }
-        if (this.velocityX > 0 && this.x > game.getHeightContainer()) {
-            this.game.changeDirection();
         }
     }
 
