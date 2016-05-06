@@ -281,8 +281,10 @@ function Game() {
         self.fillText('Arrow Left : Move to Left', 325, 120);
         self.fillText('Arrow Right : Move to Right', 325, 140);
         self.fillText('P : Pause', 335, 160);
+        self.fillText('Space : Shoot', 314, 180);
+        self.fillText('Enter : Start', 314, 200);
 
-        self.fillText('Have Fun! :)', 330, 200);
+        self.fillText('Have Fun! :)', 330, 235);
 
     }
 
