@@ -13,7 +13,7 @@ function init() {
             game.loop();
         }
 
-    }, 20);
+    },110);
 }
 
 document.onkeyup = function(e) {
