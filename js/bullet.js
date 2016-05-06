@@ -29,7 +29,7 @@ function Bullet() {
             this.game.deleteElement(otherElement);
             this.game.notificateDestroy();
         }
-    };
+    }
 
 }
 

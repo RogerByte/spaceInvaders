@@ -21,21 +21,8 @@ function Game() {
         this.canvas = document.getElementById(element);
         this.canvas.width = 700;
         this.canvas.height = 650;
-        this.canvas.style.backgroundColor = "black";
+        this.canvas.style.backgroundColor = 'black';
         this.context = this.canvas.getContext('2d');
-
-        this.panelMessage = document.createElement("div");
-        this.panelMessage.style.display = "none";
-        this.panelMessage.style.position = "absolute";
-        this.panelMessage.style.top = this.canvas.offsetTop;
-        this.panelMessage.style.left = this.canvas.offsetLeft;
-        this.panelMessage.style.width = this.canvas.width;
-        this.panelMessage.style.height = this.canvas.height;
-        this.panelMessage.style.paddingTop = "250px";
-        this.panelMessage.style.textAlign = "center";
-        this.panelMessage.style.color = "yellow";
-        this.panelMessage.style.fontSize = "x-large";
-        document.body.appendChild(this.panelMessage);
 
         this.createElement();
     }
@@ -91,13 +78,39 @@ function Game() {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             var elements = this.listElements.length;
             var elementsDeleted = this.listElementsDeleted.length;
-
+            var countColumn = 0;
+            var countRow = 0;
+            var model = 0;
             for (var i = 0; i < elements; i++) {
                 this.listElements[i].move(distance);
             }
 
             for (var i = 0; i < elements; i++) {
-                this.listElements[i].draw(this.context);
+                if (this.listElements[i].getTypeElement() == 'Invader') {
+                    countColumn++
+                    if (countColumn > 12) {
+                        countColumn = 1;
+                        countRow++
+                    }
+                    switch (countRow) {
+                        case 0:
+                            model = 0;
+                            break;
+                        case 1:
+                        case 2:
+                            model = 1;
+                            break;
+                        case 3:
+                        case 4:
+                            model = 2;
+                            break;
+                    }
+                    this.listElements[i].draw(this.context, model);
+
+                } else {
+                    this.listElements[i].draw(this.context);
+                }
+
             }
 
             for (var i = 0; i < elements - 1; i++) {
@@ -131,9 +144,9 @@ function Game() {
             }
 
             if (this.loadPushButton) {
-                this.panelMessage.style.display = "block";
+                // this.panelMessage.style.display = 'block';
             } else {
-                this.panelMessage.style.display = "none";
+                //  this.panelMessage.style.display = 'none';
             }
 
             this.spaceship.setVelocityX(0);
@@ -224,34 +237,52 @@ function Game() {
     }
 
     this.setMessage = function(text) {
-        var text = text || "PAUSE";
-        this.context.font = "30px monospace";
-        this.context.fillStyle = "red";
-        this.context.textAlign = "center";
+        var text = text || 'PAUSE';
+        this.context.font = '30px monospace';
+        this.context.fillStyle = 'red';
+        this.context.textAlign = 'center';
         this.context.fillText(text, 330, 30);
 
         this.getHelp();
     }
 
+    this.notificateWin = function(text) {
+        var text = text || 'YOU ARE THE WINNER!';
+
+        this.context.fillStyle = 'black';
+        this.context.fillRect(90, 50, 500, 200);
+
+        this.context.strokeStyle = 'blue'
+        this.context.strokeRect(90, 50, 500, 200);
+
+
+        this.context.font = '30px monospace';
+        this.context.fillStyle = 'yellow';
+        this.context.fillText(text, 190, 140);
+
+        this.pause = true
+        this.loadPushButton = true;
+    }
+
     this.getHelp = function() {
         var self = this.context;
 
-        self.fillStyle = "black";
+        self.fillStyle = 'black';
         self.fillRect(90, 50, 500, 200);
 
-        self.fillStyle = "white";
+        self.fillStyle = 'white';
         self.strokeStyle = 'blue'
         self.strokeRect(90, 50, 500, 200);
 
-        self.font = "30px monospace";
-        self.fillText("Controls", 330, 85);
+        self.font = '30px monospace';
+        self.fillText('Controls', 330, 85);
 
-        self.font = "20px monospace";
-        self.fillText("Arrow Left : Move to Left", 325, 120);
-        self.fillText("Arrow Right : Move to Right", 325, 140);
-        self.fillText("P : Pause", 335, 160);
+        self.font = '20px monospace';
+        self.fillText('Arrow Left : Move to Left', 325, 120);
+        self.fillText('Arrow Right : Move to Right', 325, 140);
+        self.fillText('P : Pause', 335, 160);
 
-        self.fillText("Have Fun! :)", 330, 200);
+        self.fillText('Have Fun! :)', 330, 200);
 
     }
 
