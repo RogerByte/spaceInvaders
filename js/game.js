@@ -113,7 +113,7 @@ function Game() {
 
             }
 
-            for (var i = 0; i < elements - 1; i++) {
+            for (var i = 0; i < this.listElements.length - 1; i++) {
                 for (var j = i + 1; j < elements; j++) {
                     var elementOne = this.listElements[i];
                     var elementOther = this.listElements[j];
@@ -137,7 +137,7 @@ function Game() {
             this.listaEntidadesEliminar = [];
 
             if (this.direction) {
-                for (var i = 0; i < elements; i++) {
+                for (var i = 0; i < this.listElements.length; i++) {
                     this.listElements[i].behaviorOfMovement();
                 }
                 this.direction = false;
