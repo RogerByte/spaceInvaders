@@ -9,4 +9,5 @@ Invitación abierta para que colabores y mejores la aplicación, realiza las mod
 Comparte el repositorio para que llegue a mas personas interesadas en aprender sobre el uso de canvas.
 
 # Funcionamiento
-http://rogerbyte.github.io/spaceInvaders/ 
+Live Demo
+http://rogerbyte.github.io/spaceInvaders/
