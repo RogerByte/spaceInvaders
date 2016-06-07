@@ -4,16 +4,7 @@ var DEBUGGER = true;
 function init() {
     game = new Game();
     game._construct("mainContainer");
-
-
-    setInterval(function() {
-        if (game.pause) {
-            game.setMessage()
-        } else {
-            game.loop();
-        }
-
-    },110);
+    game.loop();
 }
 
 document.onkeyup = function(e) {

@@ -16,6 +16,7 @@ function Game() {
     this.arrowRightPush = false;
     this.counterInvader;
     this.direction = false;
+    this.frameID = 0;
 
     this._construct = function(element) {
         this.canvas = document.getElementById(element);
@@ -72,6 +73,11 @@ function Game() {
     }
 
     this.loop = function() {
+
+        this.frameID = requestAnimationFrame(function() {
+                game.loop();
+        });
+
         if (this.isRunning) {
             var distance = (new Date().getTime()) - this.lapseTime;
             this.lapseTime = new Date().getTime();
@@ -162,9 +168,12 @@ function Game() {
             }
 
         } else {
+            //setInterval(function(){ game.loop()},110);
             this.lapseTime = new Date().getTime();
             this.isRunning = true;
         }
+
+
     }
 
     this.onkeydown = function(e) {
@@ -247,6 +256,7 @@ function Game() {
     }
 
     this.notificateWin = function(text) {
+        cancelAnimationFrame(this.frameID);
         var text = text || 'YOU ARE THE WINNER!';
 
         this.context.fillStyle = 'black';
@@ -330,5 +340,8 @@ function Game() {
         this.listElements.push(shoot);
     }
 
+    this.getLapseTime = function() {
+        return this.lapseTime;
+    }
 
 }
