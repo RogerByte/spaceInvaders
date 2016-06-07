@@ -15,7 +15,7 @@ function Element() {
             [345, 0],
             [345, 110]
         ]
-    },{
+    }, {
         img: img,
         width: 150,
         height: 100,
@@ -55,12 +55,17 @@ function Element() {
     this.draw = function(context, model) {
         context.fillStyle = this.color;
 
-        if (this.typeElement == "Invader") {
-            this.animate(this.sprites[model], this.x, this.y, Math.round(Math.random()), context)
-        } else {
-            context.fillRect(this.x, this.y, this.width, this.height)
+        switch (this.typeElement) {
+            case "Invader":
+                this.animate(this.sprites[model], this.x, this.y, ((new Date().getSeconds() % 2) == 0) * 1, context)
+                break;
+            case "Spaceship":
+                context.fillRect(this.x, this.y, this.width, this.height);
+                break;
+            default:
+                context.fillRect(this.x, this.y, this.width, this.height);
+                break;
         }
-        //context.clearRect(x, y, width, height)
     }
 
     //  sprite.context.drawImage(sprite.image, sprite.x, sprite.y, 100, 45,0,0,20,40)
@@ -77,14 +82,6 @@ function Element() {
             this.width,
             this.height
         );
-
-    }
-
-
-    this.animate.prototype = {
-        draw: function(position, x, y) {
-            debugger
-        }
     }
 
     this.moveElement = function(distance) {
