@@ -4,7 +4,16 @@ var DEBUGGER = true;
 function init() {
     game = new Game();
     game._construct("mainContainer");
-    game.loop();
+
+
+    setInterval(function() {
+        if (game.pause) {
+            game.setMessage()
+        } else {
+            game.loop();
+        }
+
+    },50);
 }
 
 document.onkeyup = function(e) {
